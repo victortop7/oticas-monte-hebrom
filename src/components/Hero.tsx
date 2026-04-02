@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { stores, whatsappLink } from '../data/stores'
+import { img } from '../lib/base'
 
 const slides = [
-  '/hero1.jpg', '/hero2.jpg', '/hero3.jpg',
-  '/hero4.jpg', '/hero5.jpg', '/hero6.jpg',
+  img('hero1.jpg'), img('hero2.jpg'), img('hero3.jpg'),
+  img('hero4.jpg'), img('hero5.jpg'), img('hero6.jpg'),
 ]
 
 export function Hero() {

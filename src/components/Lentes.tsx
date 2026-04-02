@@ -1,4 +1,5 @@
 import { stores, whatsappLink } from '../data/stores'
+import { img } from '../lib/base'
 
 interface LensFeature {
   text: string
@@ -76,7 +77,7 @@ export function Lentes() {
 
         <div className="lentes-banner">
           <img
-            src="/lentes.png"
+            src={img('lentes.png')}
             alt="Lentes JR Light Vision e Marchal Light Easy HD"
           />
         </div>

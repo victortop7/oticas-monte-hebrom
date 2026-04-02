@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { stores, whatsappLink } from '../data/stores'
+import { img } from '../lib/base'
 
 const NAV_LINKS = [
   { label: 'Início', href: '#hero', external: false },
@@ -27,7 +28,7 @@ export function Header() {
       <header className={`header${scrolled ? ' scrolled' : ''}`}>
         <div className="container header-inner">
           <a href="#hero" className="logo">
-            <img src="/logo.png" alt="Óticas Monte Hebrom" className="logo-img" />
+            <img src={img('logo.png')} alt="Óticas Monte Hebrom" className="logo-img" />
           </a>
 
           <nav className={`nav${menuOpen ? ' nav-open' : ''}`}>

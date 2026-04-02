@@ -8,15 +8,17 @@ export interface Brand {
   waMessage: string
 }
 
-// 72 fotos divididas entre 7 marcas
-const f = (n: number) => `/f${String(n).padStart(2, '0')}.jpg`
+// base dinâmico — funciona tanto em localhost quanto no GitHub Pages
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const f = (n: number) => `${base}/f${String(n).padStart(2, '0')}.jpg`
+const logo = (name: string) => name ? `${base}/${name}` : '' as string
 const range = (a: number, b: number) => Array.from({ length: b - a + 1 }, (_, i) => f(a + i))
 
 export const brands: Brand[] = [
   {
     id: 'rayban',
     name: 'Ray-Ban',
-    logo: '/logo-rayban.png',
+    logo: logo('logo-rayban.png'),
     tag: 'Clássico & Sol',
     cover: f(1),
     photos: range(1, 10),
@@ -25,7 +27,7 @@ export const brands: Brand[] = [
   {
     id: 'anahickmann',
     name: 'Ana Hickmann',
-    logo: '/logo-anahickmann.png',
+    logo: logo('logo-anahickmann.png'),
     tag: 'Feminino',
     cover: f(11),
     photos: range(11, 20),
@@ -34,7 +36,7 @@ export const brands: Brand[] = [
   {
     id: 'xtreme',
     name: 'X-Treme',
-    logo: '/logo-xtreme.png',
+    logo: logo('logo-xtreme.png'),
     tag: 'Esportivo',
     cover: f(21),
     photos: range(21, 30),
@@ -43,7 +45,7 @@ export const brands: Brand[] = [
   {
     id: 'morenarosa',
     name: 'Morena Rosa',
-    logo: '/logo-morenarosa.png',
+    logo: logo('logo-morenarosa.png'),
     tag: 'Tendência',
     cover: f(31),
     photos: range(31, 42),
@@ -52,7 +54,7 @@ export const brands: Brand[] = [
   {
     id: 'santalolla',
     name: 'Santa Lolla',
-    logo: '/logo-santalolla.png',
+    logo: logo('logo-santalolla.png'),
     tag: 'Premium',
     cover: f(43),
     photos: range(43, 54),
@@ -61,7 +63,7 @@ export const brands: Brand[] = [
   {
     id: 'jreyewear',
     name: 'JR Eyewear',
-    logo: '/logo-jreyewear.png',
+    logo: logo('logo-jreyewear.png'),
     tag: 'Free Form',
     cover: f(55),
     photos: range(55, 63),

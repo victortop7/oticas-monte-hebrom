@@ -1,3 +1,5 @@
+import { img } from '../lib/base'
+
 const cards = [
   {
     icon: '🔬',
@@ -50,7 +52,7 @@ export function Tecnologia() {
         {/* Right visual */}
         <div className="tech-visual tech-visual-img">
           <img
-            src="/tecnologia.png"
+            src={img('tecnologia.png')}
             alt="Tecnologia e Garantia — Óticas Monte Hebrom"
             style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'var(--radius-lg)' }}
           />

@@ -1,4 +1,5 @@
 import { stores, whatsappLink } from '../data/stores'
+import { img } from '../lib/base'
 
 export function Footer() {
   return (
@@ -7,7 +8,7 @@ export function Footer() {
         <div className="footer-inner">
           {/* Brand */}
           <div className="footer-brand">
-            <img src="/logo.png" alt="Óticas Monte Hebrom" style={{ height: 70, marginBottom: 12, filter: 'brightness(0) invert(1)' }} />
+            <img src={img('logo.png')} alt="Óticas Monte Hebrom" style={{ height: 70, marginBottom: 12, filter: 'brightness(0) invert(1)' }} />
             <p className="footer-tagline">
               "Se seus olhos forem bons,<br />
               seu corpo será luz."<br />

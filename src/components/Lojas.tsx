@@ -1,4 +1,5 @@
 import { stores, whatsappLink } from '../data/stores'
+import { img } from '../lib/base'
 
 export function Lojas() {
   return (
@@ -18,7 +19,7 @@ export function Lojas() {
             <div key={store.id} className="loja-card">
               {store.id === 1 && (
                 <div className="loja-photo">
-                  <img src="/loja1.png" alt="Loja 1 — Óticas Monte Hebrom" />
+                  <img src={img('loja1.png')} alt="Loja 1 — Óticas Monte Hebrom" />
                 </div>
               )}
               <span className="loja-badge">
