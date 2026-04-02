@@ -7,17 +7,14 @@ export function Popup() {
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    const t = setTimeout(() => setOpen(true), 800)
+    const t = setTimeout(() => setOpen(true), 900)
     return () => clearTimeout(t)
   }, [])
 
   function handleWA(whatsapp: string, storeName: string) {
-    if (!name.trim()) {
-      setError(true)
-      return
-    }
+    if (!name.trim()) { setError(true); return }
     const msg = encodeURIComponent(
-      `Olá! Meu nome é *${name.trim()}* e eu quero a vaga na Ação da Visão da Óticas Monte Hebrom (${storeName})! 👁️`
+      `Olá! Meu nome é *${name.trim()}* e quero garantir minha vaga na Ação da Visão da Óticas Monte Hebrom (${storeName})! 👁️`
     )
     window.open(`https://wa.me/${whatsapp}?text=${msg}`, '_blank')
   }
@@ -25,79 +22,80 @@ export function Popup() {
   if (!open) return null
 
   return (
-    <div className="popup-backdrop" onClick={() => setOpen(false)}>
-      <div className="popup-box" onClick={e => e.stopPropagation()}>
+    <div className="pu-backdrop" onClick={() => setOpen(false)}>
+      <div className="pu-card" onClick={e => e.stopPropagation()}>
+
+        {/* Glow BG */}
+        <div className="pu-glow" />
 
         {/* Close */}
-        <button className="popup-close" onClick={() => setOpen(false)}>✕</button>
+        <button className="pu-close" onClick={() => setOpen(false)}>✕</button>
 
-        {/* Badge */}
-        <div className="popup-badge">
-          <span className="popup-badge-dot" />
-          Até sábado · Vagas limitadas
+        {/* Logo / icon */}
+        <div className="pu-logo">
+          <span>👁️</span>
         </div>
 
-        {/* Header */}
-        <div className="popup-icon">👁️</div>
-        <h2 className="popup-title">Ação da Visão</h2>
-        <p className="popup-subtitle">Gratuito na compra do óculos de grau</p>
+        {/* Title */}
+        <div className="pu-badge">
+          <span className="pu-badge-dot" /> Até sábado · Vagas limitadas
+        </div>
+        <h2 className="pu-title">Ação da Visão</h2>
+        <p className="pu-sub">Exames gratuitos na compra do óculos de grau</p>
 
         {/* Exames */}
-        <div className="popup-exames">
-          <div className="popup-exame">
-            <span className="popup-exame-icon">🔬</span>
-            <div>
-              <div className="popup-exame-name">Exame de Fundo de Olho</div>
-              <div className="popup-exame-desc">Diagnóstico completo da retina</div>
+        <div className="pu-exames">
+          {[
+            { icon: '👁️', name: 'Exame de Vista' },
+            { icon: '🔬', name: 'Exame de Fundo de Olho' },
+            { icon: '💧', name: 'Exame de Pressão do Olho' },
+          ].map(ex => (
+            <div key={ex.name} className="pu-exame">
+              <span>{ex.icon}</span>
+              <span className="pu-exame-name">{ex.name}</span>
+              <span className="pu-exame-tag">GRÁTIS</span>
             </div>
-            <span className="popup-exame-free">GRÁTIS</span>
-          </div>
-          <div className="popup-exame">
-            <span className="popup-exame-icon">💧</span>
-            <div>
-              <div className="popup-exame-name">Exame de Pressão do Olho</div>
-              <div className="popup-exame-desc">Prevenção do glaucoma</div>
-            </div>
-            <span className="popup-exame-free">GRÁTIS</span>
-          </div>
+          ))}
         </div>
 
-        {/* Nome */}
-        <div className="popup-form">
-          <label className="popup-label">Seu nome completo para garantir a vaga</label>
-          <input
-            className={`popup-input${error ? ' popup-input-error' : ''}`}
-            type="text"
-            placeholder="Ex: Maria Silva"
-            value={name}
-            onChange={e => { setName(e.target.value); setError(false) }}
-            onKeyDown={e => e.key === 'Enter' && name.trim() && handleWA(stores[0].whatsapp, stores[0].name)}
-          />
-          {error && <span className="popup-error-msg">Digite seu nome para continuar</span>}
+        {/* Input nome */}
+        <div className="pu-field">
+          <label className="pu-field-label">Seu nome completo</label>
+          <div className="pu-input-wrap">
+            <span className="pu-input-icon">👤</span>
+            <input
+              className={`pu-input${error ? ' pu-input-err' : ''}`}
+              type="text"
+              placeholder="Digite seu nome completo"
+              value={name}
+              onChange={e => { setName(e.target.value); setError(false) }}
+              autoFocus
+            />
+          </div>
+          {error && <span className="pu-err-msg">Por favor, informe seu nome para continuar</span>}
         </div>
 
-        {/* Lojas */}
-        <div className="popup-stores-label">Escolha a loja e garanta sua vaga:</div>
-        <div className="popup-stores">
+        {/* Botões lojas */}
+        <div className="pu-stores">
           {stores.map(store => (
             <button
               key={store.id}
-              className="popup-store-btn"
+              className="pu-store-btn"
               onClick={() => handleWA(store.whatsapp, store.name)}
             >
-              <div className="popup-store-info">
-                <span className="popup-store-name">{store.name}</span>
-                <span className="popup-store-addr">{store.address}</span>
+              <div className="pu-store-left">
+                <span className="pu-store-name">{store.name}</span>
+                <span className="pu-store-addr">{store.address} · {store.city}</span>
               </div>
-              <div className="popup-wa-circle">
-                <WaSVG />
+              <div className="pu-wa-pill">
+                <WaSVG /> Garantir vaga
               </div>
             </button>
           ))}
         </div>
 
-        <p className="popup-obs">
-          ⏳ Exames gratuitos válidos até sábado · Na compra de óculos de grau
+        <p className="pu-obs">
+          Clique na sua loja mais próxima para garantir sua vaga
         </p>
       </div>
     </div>
@@ -106,7 +104,7 @@ export function Popup() {
 
 function WaSVG() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="white">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
   )
