@@ -49,22 +49,19 @@ export function Brands() {
                 </div>
 
                 <div className="brand-card-body">
-                  {brand.logo ? (
-                    <img
-                      src={brand.logo}
-                      alt={brand.name}
-                      className="brand-logo-badge"
-                    />
-                  ) : (
-                    <div className="brand-logo-text">{brand.name}</div>
-                  )}
+                  <div className="brand-card-logo-row">
+                    {brand.logo && (
+                      <div className="brand-logo-circle">
+                        <img src={brand.logo} alt={brand.name} />
+                      </div>
+                    )}
+                    <div className="brand-card-name-label">{brand.name}</div>
+                  </div>
                   <div className="brand-card-meta">
                     <span className="brand-card-tag2">{brand.tag}</span>
                     <span className="brand-card-count">{brand.photos.length} modelos</span>
                   </div>
-                  <div className="brand-card-cta2">
-                    Ver coleção →
-                  </div>
+                  <div className="brand-card-cta2">Ver coleção →</div>
                 </div>
               </button>
             ))}
