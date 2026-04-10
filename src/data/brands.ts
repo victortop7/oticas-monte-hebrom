@@ -53,6 +53,15 @@ export const brands: Brand[] = [
     waMessage: 'Olá! Quero ver as armações masculinas JR Eyewear disponíveis na Óticas Monte Hebrom 😊',
   },
   {
+    id: 'jr-feminino',
+    name: 'JR Eyewear Feminino',
+    logo: logo('logo-jreyewear.png'),
+    tag: 'Feminino',
+    cover: `${base}/fotos/jr-feminino/1.jpeg`,
+    photos: folder('jr-feminino', 1, 72, 'jpeg'),
+    waMessage: 'Olá! Quero ver as armações femininas JR Eyewear disponíveis na Óticas Monte Hebrom 😊',
+  },
+  {
     id: 'jr-esporte',
     name: 'JR Eyewear Esporte',
     logo: logo('logo-jreyewear.png'),
