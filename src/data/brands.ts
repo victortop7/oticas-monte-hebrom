@@ -3,16 +3,17 @@ export interface Brand {
   name: string
   logo: string
   tag: string
-  cover: string   // foto de capa da marca
-  photos: string[] // catálogo de fotos
+  cover: string
+  photos: string[]
   waMessage: string
 }
 
-// base dinâmico — funciona tanto em localhost quanto no GitHub Pages
 const base = import.meta.env.BASE_URL.replace(/\/$/, '')
-const f = (n: number) => `${base}/f${String(n).padStart(2, '0')}.jpg`
-const logo = (name: string) => name ? `${base}/${name}` : '' as string
-const range = (a: number, b: number) => Array.from({ length: b - a + 1 }, (_, i) => f(a + i))
+const logo = (name: string) => name ? `${base}/${name}` : ''
+
+function folder(dir: string, start: number, end: number, ext: string = 'png'): string[] {
+  return Array.from({ length: end - start + 1 }, (_, i) => `${base}/fotos/${dir}/${start + i}.${ext}`)
+}
 
 export const brands: Brand[] = [
   {
@@ -20,62 +21,44 @@ export const brands: Brand[] = [
     name: 'Ray-Ban',
     logo: logo('logo-rayban.png'),
     tag: 'Clássico & Sol',
-    cover: f(1),
-    photos: range(1, 10),
+    cover: `${base}/fotos/rayban/1.png`,
+    photos: folder('rayban', 1, 41),
     waMessage: 'Olá! Quero ver as armações Ray-Ban disponíveis na Óticas Monte Hebrom 😊',
   },
   {
-    id: 'anahickmann',
-    name: 'Ana Hickmann',
-    logo: logo('logo-anahickmann.png'),
-    tag: 'Feminino',
-    cover: f(11),
-    photos: range(11, 20),
-    waMessage: 'Olá! Quero ver as armações Ana Hickmann disponíveis na Óticas Monte Hebrom 😊',
-  },
-  {
-    id: 'xtreme',
-    name: 'X-Treme',
-    logo: logo('logo-xtreme.png'),
-    tag: 'Esportivo',
-    cover: f(21),
-    photos: range(21, 30),
-    waMessage: 'Olá! Quero ver as armações X-Treme disponíveis na Óticas Monte Hebrom 😊',
-  },
-  {
-    id: 'morenarosa',
-    name: 'Morena Rosa',
-    logo: logo('logo-morenarosa.png'),
-    tag: 'Tendência',
-    cover: f(31),
-    photos: range(31, 42),
-    waMessage: 'Olá! Quero ver as armações Morena Rosa disponíveis na Óticas Monte Hebrom 😊',
-  },
-  {
-    id: 'santalolla',
-    name: 'Santa Lolla',
-    logo: logo('logo-santalolla.png'),
-    tag: 'Premium',
-    cover: f(43),
-    photos: range(43, 54),
-    waMessage: 'Olá! Quero ver as armações Santa Lolla disponíveis na Óticas Monte Hebrom 😊',
-  },
-  {
-    id: 'jreyewear',
-    name: 'JR Eyewear',
-    logo: logo('logo-jreyewear.png'),
-    tag: 'Free Form',
-    cover: f(55),
-    photos: range(55, 63),
-    waMessage: 'Olá! Quero ver as armações JR Eyewear disponíveis na Óticas Monte Hebrom 😊',
-  },
-  {
-    id: 'marchal',
-    name: 'Marchal',
+    id: 'vogue',
+    name: 'Vogue',
     logo: '',
-    tag: 'Light Easy HD',
-    cover: f(64),
-    photos: range(64, 72),
-    waMessage: 'Olá! Quero ver as armações Marchal disponíveis na Óticas Monte Hebrom 😊',
+    tag: 'Feminino',
+    cover: `${base}/fotos/vogue/1.jpeg`,
+    photos: folder('vogue', 1, 8, 'jpeg'),
+    waMessage: 'Olá! Quero ver as armações Vogue disponíveis na Óticas Monte Hebrom 😊',
+  },
+  {
+    id: 'jr-verao',
+    name: 'JR Eyewear Verão',
+    logo: logo('logo-jreyewear.png'),
+    tag: 'Coleção Verão',
+    cover: `${base}/fotos/jr-verao/2.png`,
+    photos: folder('jr-verao', 2, 19),
+    waMessage: 'Olá! Quero ver a Coleção Verão JR Eyewear disponível na Óticas Monte Hebrom 😊',
+  },
+  {
+    id: 'jr-masculino',
+    name: 'JR Eyewear Masculino',
+    logo: logo('logo-jreyewear.png'),
+    tag: 'Masculino',
+    cover: `${base}/fotos/jr-masculino/2.png`,
+    photos: folder('jr-masculino', 2, 21),
+    waMessage: 'Olá! Quero ver as armações masculinas JR Eyewear disponíveis na Óticas Monte Hebrom 😊',
+  },
+  {
+    id: 'jr-esporte',
+    name: 'JR Eyewear Esporte',
+    logo: logo('logo-jreyewear.png'),
+    tag: 'Esportivo',
+    cover: `${base}/fotos/jr-esporte/2.png`,
+    photos: folder('jr-esporte', 2, 16),
+    waMessage: 'Olá! Quero ver os óculos esporte JR Eyewear disponíveis na Óticas Monte Hebrom 😊',
   },
 ]
