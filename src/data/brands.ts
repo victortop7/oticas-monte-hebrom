@@ -26,6 +26,15 @@ export const brands: Brand[] = [
     waMessage: 'Olá! Quero ver as armações Ray-Ban disponíveis na Óticas Monte Hebrom 😊',
   },
   {
+    id: 'anahickmann',
+    name: 'Ana Hickmann',
+    logo: logo('logo-anahickmann.png'),
+    tag: 'Feminino',
+    cover: `${base}/fotos/anahickmann/1.png`,
+    photos: folder('anahickmann', 1, 9),
+    waMessage: 'Olá! Quero ver as armações Ana Hickmann disponíveis na Óticas Monte Hebrom 😊',
+  },
+  {
     id: 'vogue',
     name: 'Vogue',
     logo: '',
