@@ -70,6 +70,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .btn-ghost:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);transform:translateY(-1px)}
 .btn-whatsapp{background:var(--green-wa);color:#fff;box-shadow:0 6px 28px rgba(37,211,102,0.3)}
 .btn-whatsapp:hover{background:var(--green-wa-dark);transform:translateY(-2px);box-shadow:0 12px 40px rgba(37,211,102,0.45)}
+.btn-instagram{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;box-shadow:0 6px 28px rgba(220,39,67,0.3)}
+.btn-instagram:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(220,39,67,0.45)}
 .btn-lg{padding:16px 36px;font-size:15px;border-radius:var(--radius)}
 .btn-full{width:100%;justify-content:center}
 
