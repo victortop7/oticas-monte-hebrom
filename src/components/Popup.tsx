@@ -31,31 +31,19 @@ export function Popup() {
         {/* Close */}
         <button className="pu-close" onClick={() => setOpen(false)}>✕</button>
 
-        {/* Logo / icon */}
-        <div className="pu-logo">
-          <span>👁️</span>
+        {/* Barra topo */}
+        <div className="pu-topbar">
+          <span className="pu-topbar-dot" />
+          EXAME GRÁTIS · VAGAS LIMITADAS
         </div>
 
-        {/* Title */}
-        <div className="pu-badge">
-          <span className="pu-badge-dot" /> Até sábado · Vagas limitadas
-        </div>
-        <h2 className="pu-title">Ação da Visão</h2>
-        <p className="pu-sub">Exames gratuitos na compra do óculos de grau</p>
-
-        {/* Exames */}
-        <div className="pu-exames">
-          {[
-            { icon: '👁️', name: 'Exame de Vista' },
-            { icon: '🔬', name: 'Exame de Fundo de Olho' },
-            { icon: '💧', name: 'Exame de Pressão do Olho' },
-          ].map(ex => (
-            <div key={ex.name} className="pu-exame">
-              <span>{ex.icon}</span>
-              <span className="pu-exame-name">{ex.name}</span>
-              <span className="pu-exame-tag">GRÁTIS</span>
-            </div>
-          ))}
+        {/* Promoção principal */}
+        <div className="pu-promo">
+          <div className="pu-promo-label">Óculos completo</div>
+          <div className="pu-promo-price">
+            a partir de <strong>R$ 249,90</strong>
+          </div>
+          <div className="pu-promo-sub">com exame de vista gratuito incluído</div>
         </div>
 
         {/* Input nome */}
@@ -76,6 +64,7 @@ export function Popup() {
         </div>
 
         {/* Botões lojas */}
+        <p className="pu-escolha">Escolha sua loja mais próxima:</p>
         <div className="pu-stores">
           {stores.map(store => (
             <button
@@ -88,14 +77,14 @@ export function Popup() {
                 <span className="pu-store-addr">{store.address} · {store.city}</span>
               </div>
               <div className="pu-wa-pill">
-                <WaSVG /> Garantir vaga
+                <WaSVG /> Quero aproveitar
               </div>
             </button>
           ))}
         </div>
 
         <p className="pu-obs">
-          Clique na sua loja mais próxima para garantir sua vaga
+          Você será direcionado ao WhatsApp da loja escolhida
         </p>
       </div>
     </div>
