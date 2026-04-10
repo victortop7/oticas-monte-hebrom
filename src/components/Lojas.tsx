@@ -5,6 +5,7 @@ const storePhotos: Record<number, string> = {
   1: img('loja1.png'),
   2: img('loja2.png'),
   3: img('loja3.png'),
+  4: img('loja4.jpeg'),
 }
 
 export function Lojas() {
