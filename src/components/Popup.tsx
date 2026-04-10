@@ -7,7 +7,7 @@ export function Popup() {
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    const t = setTimeout(() => setOpen(true), 900)
+    const t = setTimeout(() => setOpen(true), 3000)
     return () => clearTimeout(t)
   }, [])
 
