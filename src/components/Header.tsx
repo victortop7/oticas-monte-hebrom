@@ -11,6 +11,8 @@ const NAV_LINKS = [
   { label: 'Instagram', href: 'https://www.instagram.com/oticamontehebromfortaleza/', external: true },
 ]
 
+const PHONE_LOJA1 = `tel:+${stores[0].phone}`
+
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -44,6 +46,14 @@ export function Header() {
               </a>
             ))}
             <a
+              href={PHONE_LOJA1}
+              className="btn btn-ghost"
+              onClick={() => setMenuOpen(false)}
+              title="Ligar para Loja 1"
+            >
+              <PhoneSVG /> Ligar
+            </a>
+            <a
               href={waLink}
               target="_blank"
               rel="noreferrer"
@@ -65,6 +75,16 @@ export function Header() {
         </div>
       </header>
 
+      {/* Phone float button */}
+      <a
+        href={PHONE_LOJA1}
+        className="phone-float"
+        aria-label="Ligar"
+        title="Ligar para Loja 1"
+      >
+        <PhoneSVG size={26} />
+      </a>
+
       {/* WhatsApp float button */}
       <a
         href={waLink}
@@ -77,5 +97,13 @@ export function Header() {
         <img src={img('logo-whatsapp.png')} alt="WhatsApp" width={28} height={28} style={{ filter: 'brightness(0) invert(1)' }} />
       </a>
     </>
+  )
+}
+
+function PhoneSVG({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+    </svg>
   )
 }
