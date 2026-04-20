@@ -4,6 +4,7 @@ export interface Store {
   address: string;
   city: string;
   whatsapp: string;
+  phone?: string;
 }
 
 export const stores: Store[] = [
@@ -13,6 +14,7 @@ export const stores: Store[] = [
     address: 'Rua Pedro Pereira, 218',
     city: 'Fortaleza — CE',
     whatsapp: '5585992407116',
+    phone: '5585992407116',
   },
   {
     id: 2,
@@ -27,19 +29,13 @@ export const stores: Store[] = [
     address: 'Rua Pedro Pereira, 194',
     city: 'Fortaleza — CE',
     whatsapp: '5585991445896',
-  },
-  {
-    id: 4,
-    name: 'Loja Natal',
-    address: 'Rua Ulisses Caldas, 177',
-    city: 'Natal — Cidade Alta',
-    whatsapp: '5584932012505',
+    phone: '5585991445896',
   },
 ];
 
 export function whatsappLink(whatsapp: string, store: string): string {
   const msg = encodeURIComponent(
-    `Olá! Vi o site da Óticas Monte Hebrom e gostaria de mais informações. Estou interessado na ${store}. 😊`
+    `Olá! Vim pelo Google e gostaria de mais informações sobre a Óticas Monte Hebrom (${store}). 😊`
   );
   return `https://wa.me/${whatsapp}?text=${msg}`;
 }

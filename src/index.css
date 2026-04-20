@@ -358,6 +358,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .loja-address{font-size:13px;color:var(--text-dim);line-height:1.5;margin-bottom:4px}
 .loja-city{font-size:12px;color:var(--text-muted);margin-bottom:22px;flex:1}
 .loja-divider{height:1px;background:var(--border);margin-bottom:18px}
+.loja-actions{display:flex;flex-direction:column;gap:10px}
 
 /* ─── Empresa ────────────────────────────────────────────────── */
 .empresa{
