@@ -22,6 +22,7 @@ export const stores: Store[] = [
     address: 'Rua Pedro Pereira, 299',
     city: 'Fortaleza — CE',
     whatsapp: '5585994505245',
+    phone: '5585994505245',
   },
   {
     id: 3,
